@@ -26,7 +26,8 @@ export function fetchMainPageWeatherThunkCreator() {
         })
       );
       const responseData = response.map((response) => response.data);
-      dispatch(responseData);
+      console.log(responseData);
+      dispatch(mainPageWeatherFetched(responseData));
     } catch (error) {
       console.log(error);
     }
