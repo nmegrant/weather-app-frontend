@@ -20,6 +20,14 @@ export default function MainPage() {
           <div key={city.id}>
             <h1>{city.name}</h1>
             <p>{parseInt(city.main.temp) - 273} C</p>
+            {city.weather.map((conditions) => {
+              return (
+                <div key={conditions.id}>
+                  <h3>{conditions.main}</h3>
+                  <p>{conditions.description}</p>
+                </div>
+              );
+            })}
           </div>
         );
       })}
