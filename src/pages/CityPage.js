@@ -4,13 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { fetchCityWeatherThunkCreator } from "../store/citypage/actions";
 import { selectcityWeather } from "../store/citypage/selectors";
+import CityWeather from "../components/CityWeather";
+import CityForecast from "../components/CityForecast";
 
 export default function CityPage() {
   const parameters = useParams();
   const dispatch = useDispatch();
   const weather = useSelector(selectcityWeather());
-
-  console.log(weather);
 
   useEffect(() => {
     dispatch(fetchCityWeatherThunkCreator(parameters.cityId));
@@ -19,8 +19,8 @@ export default function CityPage() {
   return (
     <div>
       <h1>{weather.name}</h1>
-      <h2>Current Weather</h2>
-      <h2>Forecast</h2>
+      <CityWeather main={weather.main} weather={weather.weather} />
+      <CityForecast />
     </div>
   );
 }
