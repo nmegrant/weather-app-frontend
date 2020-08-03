@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchMainPageWeatherThunkCreator } from "../store/mainpage/actions";
 import { selectMainPageWeather } from "../store/mainpage/selectors";
 
+import MainPageWeatherCard from "../components/MainPageWeatherCard";
+
 export default function MainPage() {
   const dispatch = useDispatch();
   const cityWeathers = useSelector(selectMainPageWeather());
@@ -14,23 +16,27 @@ export default function MainPage() {
 
   return (
     <div>
-      <h1>Weather App!</h1>
-      {cityWeathers.map((city) => {
-        return (
-          <div key={city.id}>
-            <h1>{city.name}</h1>
-            <p>{parseInt(city.main.temp) - 273} C</p>
-            {city.weather.map((conditions) => {
-              return (
-                <div key={conditions.id}>
-                  <h3>{conditions.main}</h3>
-                  <p>{conditions.description}</p>
-                </div>
-              );
-            })}
-          </div>
-        );
-      })}
+      <h1>Weather Around the World</h1>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          flexWrap: "wrap",
+          justifyContent: "center",
+        }}
+      >
+        {cityWeathers.map((city) => {
+          return (
+            <MainPageWeatherCard
+              key={city.id}
+              id={city.id}
+              city={city.name}
+              temp={parseInt(city.main.temp) - 273}
+              weather={city.weather}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }
