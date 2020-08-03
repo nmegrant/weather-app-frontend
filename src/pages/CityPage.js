@@ -19,7 +19,11 @@ export default function CityPage() {
   return (
     <div>
       <h1>{weather.name}</h1>
-      <CityWeather main={weather.main} weather={weather.weather} />
+      <CityWeather
+        main={weather.main}
+        weather={weather.weather}
+        wind={weather.wind}
+      />
       <CityForecast />
     </div>
   );
