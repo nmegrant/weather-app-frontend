@@ -1,8 +1,6 @@
 import React from "react";
 
 export default function CityWeather(props) {
-  console.log(props.wind);
-
   return (
     <div>
       <h1>Current Weather</h1>
