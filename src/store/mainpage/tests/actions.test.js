@@ -1,4 +1,8 @@
-import { mainPageWeatherFetched } from "../actions";
+import axios from "axios";
+import {
+  mainPageWeatherFetched,
+  fetchMainPageWeatherThunkCreator,
+} from "../actions";
 
 describe("#mainPageWeatherFetched", () => {
   describe("if given an array of city objects", () => {
@@ -28,6 +32,23 @@ describe("#mainPageWeatherFetched", () => {
         payload: null,
       };
       expect(mainPageWeatherFetched(null)).toEqual(expected);
+    });
+  });
+});
+
+jest.mock("axios");
+
+describe("#fetchMainPageWeatherThunkCreator", () => {
+  describe("when called", () => {
+    test("should dispatch an action mainPageWeatherFetched", async () => {
+      const fakeCities = [{}, {}, {}, {}, {}, {}];
+      const response = { data: {} };
+      axios.get.mockImplementation(() => Promise.resolve(response));
+      const dispatch = jest.fn();
+      const getState = jest.fn().mockReturnValueOnce([]);
+      await fetchMainPageWeatherThunkCreator()(dispatch, getState);
+      expect(dispatch).toHaveBeenCalledWith(mainPageWeatherFetched(fakeCities));
+      expect(dispatch).toHaveBeenCalledTimes(1);
     });
   });
 });
