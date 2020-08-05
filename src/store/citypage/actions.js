@@ -7,11 +7,12 @@ export function cityWeatherFetched(weather) {
   };
 }
 
-export function fetchCityWeatherThunkCreator(cityId) {
+export function fetchCityWeatherThunkCreator(city) {
   return async function fetchCityWeather(dispatch, getState) {
     try {
+      const query = isNaN(city) ? "q" : "id";
       const response = await axios.get(
-        `http://api.openweathermap.org/data/2.5/weather?id=${cityId}&APPID=${process.env.REACT_APP_API_KEY}`
+        `http://api.openweathermap.org/data/2.5/weather?${query}=${city}&APPID=${process.env.REACT_APP_API_KEY}`
       );
       dispatch(cityWeatherFetched(response.data));
     } catch (error) {

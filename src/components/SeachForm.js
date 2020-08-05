@@ -1,17 +1,20 @@
 import React, { useState } from "react";
-import axios from "axios";
+import { useHistory } from "react-router-dom";
+// import axios from "axios";
 
 export default function SearchForm() {
   const [search, setSearch] = useState("");
+  let history = useHistory();
 
   async function submitCity(event) {
     event.preventDefault();
     const queryParams = encodeURIComponent(search);
-    const response = await axios.get(
-      `http://api.openweathermap.org/data/2.5/weather?q=${queryParams}&APPID=${process.env.REACT_APP_API_KEY}`
-    );
+    // const response = await axios.get(
+    //   `http://api.openweathermap.org/data/2.5/weather?q=${queryParams}&APPID=${process.env.REACT_APP_API_KEY}`
+    // );
+    history.push(`/${queryParams}`);
     setSearch("");
-    console.log(response.data);
+    // console.log(response.data);
   }
 
   return (
