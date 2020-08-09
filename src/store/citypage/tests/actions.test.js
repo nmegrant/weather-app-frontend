@@ -1,5 +1,5 @@
 import axios from "axios";
-import { cityWeatherFetched, fetchCityWeatherThunkCreato } from "../actions";
+import { cityWeatherFetched, fetchCityWeatherThunkCreator } from "../actions";
 
 describe("#cityWeatherFetched", () => {
   describe("if given a city object", () => {
@@ -27,6 +27,23 @@ describe("#cityWeatherFetched", () => {
         payload: null,
       };
       expect(cityWeatherFetched(null)).toEqual(expected);
+    });
+  });
+});
+
+jest.mock("axios");
+
+describe("#fetchCityWeatherThunkCreator", () => {
+  describe("when called", () => {
+    test("should dispatch an action cityWeatherFetched", async () => {
+      const fakeCity = {};
+      const response = { data: {} };
+      axios.get.mockImplementationOnce(() => Promise.resolve(response));
+      const dispatch = jest.fn();
+      const getState = jest.fn().mockReturnValueOnce([]);
+      await fetchCityWeatherThunkCreator()(dispatch, getState);
+      expect(dispatch).toHaveBeenCalledWith(cityWeatherFetched(fakeCity));
+      expect(dispatch).toHaveBeenCalledTimes(1);
     });
   });
 });
