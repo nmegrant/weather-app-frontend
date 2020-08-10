@@ -16,13 +16,13 @@ export default function NavBar() {
       </NavLink>{" "}
       <NavLink
         exact
-        to="login"
+        to="/login"
         activeStyle={{
           fontWeight: "bold",
           color: "blue",
         }}
       >
-        Login
+        Log in
       </NavLink>
     </div>
   );

@@ -14,9 +14,9 @@ function App() {
       <NavBar />
       <Switch>
         <Route exact path="/" component={MainPage} />
-        <Route path="/:cityId" component={CityPage} />
-        <Route path="/login" component={Login} />
-        <Route path="./signup" component={SignUp} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/signup" component={SignUp} />
+        <Route exact path="/:cityId" component={CityPage} />
       </Switch>
     </div>
   );
