@@ -1,12 +1,19 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import { logInThunkCreator } from "../store/user/actions";
+import { selectUser } from "../store/user/selector";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  const user = useSelector(selectUser());
 
   function submitLogin(event) {
     event.preventDefault();
-    console.log(email, password);
+    dispatch(logInThunkCreator(email, password));
+    console.log("This is:", user);
     setEmail("");
     setPassword("");
   }
