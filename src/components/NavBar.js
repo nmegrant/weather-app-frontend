@@ -16,6 +16,16 @@ export default function NavBar() {
 
   return (
     <div>
+      <NavLink
+        exact
+        to="/"
+        activeStyle={{
+          fontWeight: "bold",
+          color: "blue",
+        }}
+      >
+        Main Page
+      </NavLink>{" "}
       {Object.keys(user).length === 0 ? (
         <NavLink
           exact

@@ -1,14 +1,12 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import { logInThunkCreator } from "../store/user/actions";
-import { selectUser } from "../store/user/selector";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
-  const user = useSelector(selectUser());
 
   function submitLogin(event) {
     event.preventDefault();
@@ -16,8 +14,6 @@ export default function Login() {
     setEmail("");
     setPassword("");
   }
-
-  console.log(user);
 
   return (
     <div>
@@ -30,6 +26,7 @@ export default function Login() {
         />
         <label>Password</label>
         <input
+          type="password"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
         />
