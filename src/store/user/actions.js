@@ -7,6 +7,12 @@ export function loggedIn(user) {
   };
 }
 
+export function loggedOut() {
+  return {
+    type: "LOGS_OUT",
+  };
+}
+
 export function logInThunkCreator(email, password) {
   return async function logIn(dispatch, getState) {
     try {
