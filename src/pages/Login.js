@@ -13,10 +13,11 @@ export default function Login() {
   function submitLogin(event) {
     event.preventDefault();
     dispatch(logInThunkCreator(email, password));
-    console.log("This is:", user);
     setEmail("");
     setPassword("");
   }
+
+  console.log(user);
 
   return (
     <div>

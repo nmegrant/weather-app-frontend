@@ -1,15 +1,26 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import { signUpThunkCreator } from "../store/user/actions";
+import { selectUser } from "../store/user/selector";
 
 export default function SignUp() {
   const [name, setName] = useState("");
   const [location, setLocation] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  const user = useSelector(selectUser());
 
   function submitSignup(event) {
     event.preventDefault();
-    console.log(name, location, email, password);
+    dispatch(signUpThunkCreator({ name, location, email, password }));
+    setName("");
+    setEmail("");
+    setLocation("");
+    setPassword("");
   }
+  console.log(user);
 
   return (
     <div>
