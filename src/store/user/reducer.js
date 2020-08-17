@@ -1,4 +1,10 @@
-const initialState = {};
+const initialState = {
+  token: localStorage.getItem("token"),
+  name: null,
+  email: null,
+  location: null,
+  darkMode: null,
+};
 
 export default function (state = initialState, action) {
   switch (action.type) {

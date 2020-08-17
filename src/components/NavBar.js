@@ -3,11 +3,11 @@ import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { loggedOut } from "../store/user/actions";
-import { selectUser } from "../store/user/selector";
+import { selectToken } from "../store/user/selector";
 
 export default function NavBar() {
   const dispatch = useDispatch();
-  const user = useSelector(selectUser());
+  const token = useSelector(selectToken());
 
   function logOutHandler(event) {
     event.preventDefault();
@@ -26,7 +26,7 @@ export default function NavBar() {
       >
         Main Page
       </NavLink>{" "}
-      {Object.keys(user).length === 0 ? (
+      {token === null ? (
         <NavLink
           exact
           to="/signup"
@@ -38,7 +38,7 @@ export default function NavBar() {
           Sign up
         </NavLink>
       ) : null}{" "}
-      {Object.keys(user).length === 0 ? (
+      {token === null ? (
         <NavLink
           exact
           to="/login"

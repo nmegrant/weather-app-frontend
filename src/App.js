@@ -14,8 +14,6 @@ import SignUp from "./pages/SignUp";
 function App() {
   const user = useSelector(selectUser());
 
-  console.log(user);
-
   return (
     <div className="App">
       <NavBar />
