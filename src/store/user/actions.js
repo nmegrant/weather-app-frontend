@@ -21,6 +21,13 @@ export function stillLoggedIn(userAndToken) {
   };
 }
 
+// export function userInfo(info) {
+//   return {
+//     type: "USER_INFORMATION",
+//     payload: info,
+//   };
+// }
+
 export function logInThunkCreator(email, password) {
   return async function logIn(dispatch, getState) {
     try {
@@ -49,7 +56,7 @@ export function signUpThunkCreator(newUser) {
   };
 }
 
-export function getLoggedInUDerThunkCreator() {
+export function getLoggedInUserThunkCreator() {
   return async function getUserThunk(dispatch, getState) {
     const tokenFunction = selectToken();
     const token = tokenFunction(getState());
