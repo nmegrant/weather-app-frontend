@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 import { logInThunkCreator } from "../store/user/actions";
 import { selectToken } from "../store/user/selector";
@@ -41,6 +41,9 @@ export default function Login() {
           onChange={(event) => setPassword(event.target.value)}
         />
         <button onClick={submitLogin}>Log in</button>
+        <p>
+          Not a member? <Link to="/signup">Sign up now!</Link>
+        </p>
       </form>
     </div>
   );
