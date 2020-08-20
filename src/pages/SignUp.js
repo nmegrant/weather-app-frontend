@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 import { signUpThunkCreator } from "../store/user/actions";
 
@@ -43,6 +44,9 @@ export default function SignUp() {
         />
         <button onClick={submitSignup}>Sign up</button>
       </form>
+      <p>
+        Already a member? <Link to="/login">Log in here!</Link>
+      </p>
     </div>
   );
 }

@@ -26,18 +26,18 @@ export default function NavBar() {
       >
         Main Page
       </NavLink>{" "}
-      {token === null ? (
+      {token === null ? null : (
         <NavLink
           exact
-          to="/signup"
+          to="/profile"
           activeStyle={{
             fontWeight: "bold",
             color: "blue",
           }}
         >
-          Sign up
+          My Page
         </NavLink>
-      ) : null}{" "}
+      )}{" "}
       {token === null ? (
         <NavLink
           exact
