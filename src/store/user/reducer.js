@@ -16,7 +16,7 @@ export default function (state = initialState, action) {
       };
     case "LOGS_OUT":
       localStorage.removeItem("token");
-      return initialState;
+      return { ...initialState, token: null };
     case "STILL_LOGGED_IN":
       return {
         ...state,
