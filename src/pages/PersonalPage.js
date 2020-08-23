@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 import CityWeather from "../components/CityWeather";
 
@@ -14,8 +15,6 @@ export default function PersonalPage() {
   const user = useSelector(selectUser());
   const dispatch = useDispatch();
   const favourites = useSelector(selectFavourites());
-
-  console.log(favourites);
 
   useEffect(() => {
     dispatch(getLoggedInUserThunkCreator());
@@ -38,9 +37,13 @@ export default function PersonalPage() {
         wind={locationWeather.wind}
       />
       <h1>Favourite Cities</h1>
-      {favourites.map((favourite) => (
-        <h4>{favourite.location}</h4>
-      ))}
+      {favourites.map((favourite) => {
+        return (
+          <div key={favourite.id}>
+            <Link to={favourite.location}>{favourite.location}</Link>
+          </div>
+        );
+      })}
     </div>
   );
 }
