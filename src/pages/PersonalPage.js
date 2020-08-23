@@ -37,6 +37,10 @@ export default function PersonalPage() {
         weather={locationWeather.weather}
         wind={locationWeather.wind}
       />
+      <h1>Favourite Cities</h1>
+      {favourites.map((favourite) => (
+        <h4>{favourite.location}</h4>
+      ))}
     </div>
   );
 }
