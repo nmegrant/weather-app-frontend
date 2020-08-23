@@ -7,10 +7,15 @@ import { selectUser } from "../store/user/selector";
 import { getLoggedInUserThunkCreator } from "../store/user/actions";
 import { fetchCityWeatherThunkCreator } from "../store/citypage/actions";
 import { selectcityWeather } from "../store/citypage/selectors";
+import { fetchUserFavouritesThunkCreator } from "../store/favourites/actions";
+import { selectFavourites } from "../store/favourites/selectors";
 
 export default function PersonalPage() {
   const user = useSelector(selectUser());
   const dispatch = useDispatch();
+  const favourites = useSelector(selectFavourites());
+
+  console.log(favourites);
 
   useEffect(() => {
     dispatch(getLoggedInUserThunkCreator());
@@ -18,6 +23,7 @@ export default function PersonalPage() {
 
   useEffect(() => {
     dispatch(fetchCityWeatherThunkCreator(user.location));
+    dispatch(fetchUserFavouritesThunkCreator());
   }, [dispatch, user.location]);
 
   const locationWeather = useSelector(selectcityWeather());
