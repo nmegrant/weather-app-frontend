@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { loggedOut } from "../store/user/actions";
@@ -8,10 +8,12 @@ import { selectToken } from "../store/user/selector";
 export default function NavBar() {
   const dispatch = useDispatch();
   const token = useSelector(selectToken());
+  const history = useHistory();
 
   function logOutHandler(event) {
     event.preventDefault();
     dispatch(loggedOut());
+    history.push("/");
   }
 
   return (

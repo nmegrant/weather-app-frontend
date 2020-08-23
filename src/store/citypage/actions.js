@@ -16,7 +16,7 @@ export function fetchCityWeatherThunkCreator(city) {
       );
       dispatch(cityWeatherFetched(response.data));
     } catch (error) {
-      console.log(error);
+      console.log(`Error fetching city weather: ${error}`);
     }
   };
 }
