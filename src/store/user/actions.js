@@ -21,13 +21,6 @@ export function stillLoggedIn(userAndToken) {
   };
 }
 
-// export function userInfo(info) {
-//   return {
-//     type: "USER_INFORMATION",
-//     payload: info,
-//   };
-// }
-
 export function logInThunkCreator(email, password) {
   return async function logIn(dispatch, getState) {
     try {

@@ -14,6 +14,7 @@ export function fetchCityWeatherThunkCreator(city) {
       const response = await axios.get(
         `http://api.openweathermap.org/data/2.5/weather?${query}=${city}&APPID=${process.env.REACT_APP_API_KEY}`
       );
+      console.log(response.data);
       dispatch(cityWeatherFetched(response.data));
     } catch (error) {
       console.log(error);
