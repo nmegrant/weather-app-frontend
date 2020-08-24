@@ -35,14 +35,14 @@ export function addFavouriteThunkCreator(location) {
     const tokenFunction = selectToken();
     const token = tokenFunction(getState());
     try {
-      const response = await axios.post(`/favourites`, {
-        headers: { Authorization: `Bearer ${token}` },
-        params: {
-          location: location,
-        },
-      });
+      const response = await axios.post(
+        `http://localhost:4000/favourites`,
+        { location },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       dispatch(addFavourites(response.data));
-      console.log("Add new favourite", location);
     } catch (error) {
       console.log(`Error adding new favourite: ${error}`);
     }
