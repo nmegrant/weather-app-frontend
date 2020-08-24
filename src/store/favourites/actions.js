@@ -8,7 +8,7 @@ export function favouritesFetched(favs) {
   };
 }
 
-export function addFavourites(favs) {
+export function addNewFavourites(favs) {
   return {
     type: "ADD_NEW_FAVOURITES",
     payload: favs,
@@ -42,7 +42,8 @@ export function addFavouriteThunkCreator(location) {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
-      dispatch(addFavourites(response.data));
+      console.log(response.data);
+      dispatch(addNewFavourites(response.data));
     } catch (error) {
       console.log(`Error adding new favourite: ${error}`);
     }

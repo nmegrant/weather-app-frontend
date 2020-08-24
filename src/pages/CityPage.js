@@ -37,8 +37,6 @@ export default function CityPage() {
     }
   }
 
-  console.log(favourite);
-
   return (
     <div>
       <h1>{weather.name}</h1>
