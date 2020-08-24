@@ -6,6 +6,7 @@ import { fetchCityWeatherThunkCreator } from "../store/citypage/actions";
 import { selectcityWeather } from "../store/citypage/selectors";
 import CityWeather from "../components/CityWeather";
 import CityForecast from "../components/CityForecast";
+import Favourites from "../components/Favourites";
 
 export default function CityPage() {
   const parameters = useParams();
