@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchCityWeatherThunkCreator } from "../store/citypage/actions";
 import { selectcityWeather } from "../store/citypage/selectors";
 import { fetchUserFavouritesThunkCreator } from "../store/favourites/actions";
+import { addFavouriteThunkCreator } from "../store/favourites/actions";
 import { selectFavourites } from "../store/favourites/selectors";
 import CityWeather from "../components/CityWeather";
 import CityForecast from "../components/CityForecast";
@@ -28,14 +29,24 @@ export default function CityPage() {
     setFavourite(listOfFavourites.includes(weather.name));
   }, [listOfFavourites, weather.name]);
 
-  function changeFavourite() {
-    setFavourite(!favourite);
+  function changeFavourite(location) {
+    if (favourite) {
+      console.log("remove favourite");
+    } else {
+      dispatch(addFavouriteThunkCreator(location));
+    }
   }
+
+  console.log(favourite);
 
   return (
     <div>
       <h1>{weather.name}</h1>
-      <Favourites changeFavourite={changeFavourite} favourite={favourite} />
+      <Favourites
+        changeFavourite={changeFavourite}
+        favourite={favourite}
+        location={weather.name}
+      />
       <CityWeather
         main={weather.main}
         weather={weather.weather}
