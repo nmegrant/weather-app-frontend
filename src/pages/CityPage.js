@@ -5,7 +5,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchCityWeatherThunkCreator } from "../store/citypage/actions";
 import { selectcityWeather } from "../store/citypage/selectors";
 import { fetchUserFavouritesThunkCreator } from "../store/favourites/actions";
-import { addFavouriteThunkCreator } from "../store/favourites/actions";
+import {
+  addFavouriteThunkCreator,
+  removeFavouriteThunkCreator,
+} from "../store/favourites/actions";
 import { selectFavourites } from "../store/favourites/selectors";
 import CityWeather from "../components/CityWeather";
 import CityForecast from "../components/CityForecast";
@@ -31,7 +34,10 @@ export default function CityPage() {
 
   function changeFavourite(location) {
     if (favourite) {
-      console.log("remove favourite");
+      const cityToRemove = listOfFavouritesObjects.find(
+        (favourite) => favourite.location === weather.name
+      );
+      dispatch(removeFavouriteThunkCreator(cityToRemove.id));
     } else {
       dispatch(addFavouriteThunkCreator(location));
     }

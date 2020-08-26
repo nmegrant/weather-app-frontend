@@ -15,6 +15,13 @@ export function addNewFavourites(favs) {
   };
 }
 
+export function updatedFavourites(newFavs) {
+  return {
+    type: "REMOVE_FAVOURITE",
+    payload: newFavs,
+  };
+}
+
 export function fetchUserFavouritesThunkCreator() {
   return async function fetchUserFavourites(dispatch, getState) {
     const tokenFunction = selectToken();
@@ -42,10 +49,25 @@ export function addFavouriteThunkCreator(location) {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
-      console.log(response.data);
       dispatch(addNewFavourites(response.data));
     } catch (error) {
       console.log(`Error adding new favourite: ${error}`);
+    }
+  };
+}
+
+export function removeFavouriteThunkCreator(id) {
+  return async function removeFavourite(dispatch, getState) {
+    const tokenFunction = selectToken();
+    const token = tokenFunction(getState());
+    try {
+      const newFavouritesList = await axios.delete(
+        `http://localhost:4000/favourites`,
+        { headers: { Authorization: `Bearer ${token}` }, data: { id } }
+      );
+      dispatch(updatedFavourites(newFavouritesList.data));
+    } catch (error) {
+      console.log(`Error removing a favourite: ${error}`);
     }
   };
 }
