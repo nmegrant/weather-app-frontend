@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import CityWeather from "../components/CityWeather";
 
-import { selectUser } from "../store/user/selector";
+import { selectUser, selectToken } from "../store/user/selector";
 import { getLoggedInUserThunkCreator } from "../store/user/actions";
 import { fetchCityWeatherThunkCreator } from "../store/citypage/actions";
 import { selectcityWeather } from "../store/citypage/selectors";
@@ -13,8 +13,14 @@ import { selectFavourites } from "../store/favourites/selectors";
 
 export default function PersonalPage() {
   const user = useSelector(selectUser());
-  const dispatch = useDispatch();
+  const token = useSelector(selectToken());
   const favourites = useSelector(selectFavourites());
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  if (token === null) {
+    history.push("/");
+  }
 
   useEffect(() => {
     dispatch(getLoggedInUserThunkCreator());
