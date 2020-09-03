@@ -56,7 +56,11 @@ export default function CityPage() {
         weather={weather.weather}
         wind={weather.wind}
       />
-      <WeatherAdvice main={weather.main} />
+      <WeatherAdvice
+        main={weather.main}
+        weather={weather.weather}
+        wind={weather.wind}
+      />
     </div>
   );
 }
