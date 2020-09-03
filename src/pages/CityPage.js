@@ -11,7 +11,7 @@ import {
 } from "../store/favourites/actions";
 import { selectFavourites } from "../store/favourites/selectors";
 import CityWeather from "../components/CityWeather";
-import CityForecast from "../components/CityForecast";
+import WeatherAdvice from "../components/WeatherAdvice";
 import Favourites from "../components/Favourites";
 
 export default function CityPage() {
@@ -56,7 +56,11 @@ export default function CityPage() {
         weather={weather.weather}
         wind={weather.wind}
       />
-      <CityForecast />
+      <WeatherAdvice
+        main={weather.main}
+        weather={weather.weather}
+        wind={weather.wind}
+      />
     </div>
   );
 }
