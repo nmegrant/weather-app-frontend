@@ -43,8 +43,6 @@ export default function CityPage() {
     }
   }
 
-  console.log(weather);
-
   return (
     <div>
       <h1>{weather.name}</h1>
@@ -58,7 +56,7 @@ export default function CityPage() {
         weather={weather.weather}
         wind={weather.wind}
       />
-      <WeatherAdvice />
+      <WeatherAdvice main={weather.main} />
     </div>
   );
 }
