@@ -7,6 +7,12 @@ export function cityWeatherFetched(weather) {
   };
 }
 
+export function clearCityWeather() {
+  return {
+    type: "CLEAR_CITY_WEATHER",
+  };
+}
+
 export function fetchCityWeatherThunkCreator(city) {
   return async function fetchCityWeather(dispatch, getState) {
     try {
@@ -17,6 +23,7 @@ export function fetchCityWeatherThunkCreator(city) {
       dispatch(cityWeatherFetched(response.data));
     } catch (error) {
       console.log(`Error fetching city weather: ${error}`);
+      dispatch(clearCityWeather());
     }
   };
 }

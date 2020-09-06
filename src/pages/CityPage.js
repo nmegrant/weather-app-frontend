@@ -43,24 +43,32 @@ export default function CityPage() {
     }
   }
 
+  console.log(weather);
+
   return (
     <div>
-      <h1>{weather.name}</h1>
-      <Favourites
-        changeFavourite={changeFavourite}
-        favourite={favourite}
-        location={weather.name}
-      />
-      <CityWeather
-        main={weather.main}
-        weather={weather.weather}
-        wind={weather.wind}
-      />
-      <WeatherAdvice
-        main={weather.main}
-        weather={weather.weather}
-        wind={weather.wind}
-      />
+      {Object.keys(weather).length !== 0 ? (
+        <div>
+          <h1>{weather.name}</h1>
+          <Favourites
+            changeFavourite={changeFavourite}
+            favourite={favourite}
+            location={weather.name}
+          />
+          <CityWeather
+            main={weather.main}
+            weather={weather.weather}
+            wind={weather.wind}
+          />
+          <WeatherAdvice
+            main={weather.main}
+            weather={weather.weather}
+            wind={weather.wind}
+          />
+        </div>
+      ) : (
+        <h1>Sorry, no such place on record</h1>
+      )}
     </div>
   );
 }
