@@ -1,9 +1,16 @@
 import axios from "axios";
+import { searchedCitiesThunkCreator } from "../searches/actions";
 
 export function cityWeatherFetched(weather) {
   return {
     type: "CITY_WEATHER_FETCHED",
     payload: weather,
+  };
+}
+
+export function clearCityWeather() {
+  return {
+    type: "CLEAR_CITY_WEATHER",
   };
 }
 
@@ -15,8 +22,12 @@ export function fetchCityWeatherThunkCreator(city) {
         `http://api.openweathermap.org/data/2.5/weather?${query}=${city}&APPID=${process.env.REACT_APP_API_KEY}`
       );
       dispatch(cityWeatherFetched(response.data));
+      if (isNaN(city)) {
+        dispatch(searchedCitiesThunkCreator(city));
+      }
     } catch (error) {
       console.log(`Error fetching city weather: ${error}`);
+      dispatch(clearCityWeather());
     }
   };
 }
