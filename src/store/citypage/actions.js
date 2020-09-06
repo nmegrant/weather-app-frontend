@@ -23,7 +23,7 @@ export function fetchCityWeatherThunkCreator(city) {
       );
       dispatch(cityWeatherFetched(response.data));
       if (isNaN(city)) {
-        searchedCitiesThunkCreator(city);
+        dispatch(searchedCitiesThunkCreator(city));
       }
     } catch (error) {
       console.log(`Error fetching city weather: ${error}`);
