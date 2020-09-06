@@ -1,4 +1,5 @@
 import axios from "axios";
+import { searchedCitiesThunkCreator } from "../searches/actions";
 
 export function cityWeatherFetched(weather) {
   return {
@@ -21,6 +22,9 @@ export function fetchCityWeatherThunkCreator(city) {
         `http://api.openweathermap.org/data/2.5/weather?${query}=${city}&APPID=${process.env.REACT_APP_API_KEY}`
       );
       dispatch(cityWeatherFetched(response.data));
+      if (isNaN(city)) {
+        searchedCitiesThunkCreator(city);
+      }
     } catch (error) {
       console.log(`Error fetching city weather: ${error}`);
       dispatch(clearCityWeather());

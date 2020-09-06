@@ -43,8 +43,6 @@ export default function CityPage() {
     }
   }
 
-  console.log(weather);
-
   return (
     <div>
       {Object.keys(weather).length !== 0 ? (
