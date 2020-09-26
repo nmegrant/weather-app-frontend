@@ -40,6 +40,16 @@ export default function NavBar() {
           My Page
         </NavLink>
       )}{" "}
+      <NavLink
+        exact
+        to="/stats"
+        activeStyle={{
+          fontWeight: "bold",
+          color: "blue",
+        }}
+      >
+        Stats Page
+      </NavLink>{" "}
       {token === null ? (
         <NavLink
           exact
