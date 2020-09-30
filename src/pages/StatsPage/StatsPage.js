@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchSearchesThunkCreator } from "../../store/searches/actions";
 import { selectSearches } from "../../store/searches/selectors";
 import * as d3 from "d3";
+import "./StatsPage.css";
 
 export default function StatsPage() {
   const dispatch = useDispatch();
@@ -17,16 +18,16 @@ export default function StatsPage() {
   const svg = d3
     .select(ref.current)
     .append("svg")
-    .attr("width", 300)
-    .attr("height", 300);
+    .attr("width", 400)
+    .attr("height", 400);
 
   svg
     .selectAll("rect")
     .data(searches)
     .enter()
     .append("rect")
-    .attr("x", (d, i) => i * 30)
-    .attr("y", (d, i) => 300 - d.numSearches * 50)
+    .attr("x", (d, i) => i * 50)
+    .attr("y", (d, i) => 400 - d.numSearches * 60)
     .attr("width", 25)
     .attr("height", (d, i) => d.numSearches * 100);
 
@@ -36,13 +37,14 @@ export default function StatsPage() {
     .enter()
     .append("text")
     .text((d) => d.location)
-    .attr("x", (d, i) => i * 30)
-    .attr("y", (d, i) => 300 - d.numSearches * 50 - 3);
+    .attr("x", (d, i) => i * 50)
+    .attr("y", (d, i) => 400 - d.numSearches * 60 - 3)
+    .style("font-size", "10px");
 
   return (
-    <div>
+    <div className="body">
       <h1>Stats on Cities Searched</h1>
-      <div ref={ref} style={{ border: "solid" }}></div>
+      <div className="graph" ref={ref}></div>
     </div>
   );
 }
