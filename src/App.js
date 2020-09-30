@@ -9,6 +9,7 @@ import NavBar from "./components/NavBar";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import PersonalPage from "./pages/PersonalPage";
+import StatsPage from "./pages/StatsPage/StatsPage";
 import { getLoggedInUserThunkCreator } from "./store/user/actions";
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/profile" component={PersonalPage} />
+        <Route exact path="/stats" component={StatsPage} />
         <Route exact path="/:cityId" component={CityPage} />
       </Switch>
     </div>
