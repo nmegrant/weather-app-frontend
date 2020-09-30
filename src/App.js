@@ -9,7 +9,7 @@ import NavBar from "./components/NavBar";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import PersonalPage from "./pages/PersonalPage";
-import StatsPage from "./pages/StatsPage";
+import StatsPage from "./pages/StatsPage/StatsPage";
 import { getLoggedInUserThunkCreator } from "./store/user/actions";
 
 function App() {

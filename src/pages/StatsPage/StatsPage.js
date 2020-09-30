@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchSearchesThunkCreator } from "../store/searches/actions";
-import { selectSearches } from "../store/searches/selectors";
+import { fetchSearchesThunkCreator } from "../../store/searches/actions";
+import { selectSearches } from "../../store/searches/selectors";
 import * as d3 from "d3";
 
 export default function StatsPage() {
