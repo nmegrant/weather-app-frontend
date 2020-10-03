@@ -18,7 +18,7 @@ export default function NavBar() {
   }
 
   return (
-    <div>
+    <div className="navbar">
       <NavLink
         exact
         to="/"
@@ -26,6 +26,7 @@ export default function NavBar() {
           fontWeight: "bold",
           color: "blue",
         }}
+        className="navlink"
       >
         Main Page
       </NavLink>{" "}
@@ -37,6 +38,7 @@ export default function NavBar() {
             fontWeight: "bold",
             color: "blue",
           }}
+          className="navlink"
         >
           My Page
         </NavLink>
@@ -48,6 +50,7 @@ export default function NavBar() {
           fontWeight: "bold",
           color: "blue",
         }}
+        className="navlink"
       >
         Stats Page
       </NavLink>{" "}
@@ -59,6 +62,7 @@ export default function NavBar() {
             fontWeight: "bold",
             color: "blue",
           }}
+          className="navlink"
         >
           Log in
         </NavLink>
