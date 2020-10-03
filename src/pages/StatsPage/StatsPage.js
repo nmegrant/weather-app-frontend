@@ -18,8 +18,8 @@ export default function StatsPage() {
   const svg = d3
     .select(ref.current)
     .append("svg")
-    .attr("width", 400)
-    .attr("height", 400);
+    .attr("width", 500)
+    .attr("height", 600);
 
   svg
     .selectAll("rect")
@@ -27,7 +27,7 @@ export default function StatsPage() {
     .enter()
     .append("rect")
     .attr("x", (d, i) => i * 50)
-    .attr("y", (d, i) => 400 - d.numSearches * 60)
+    .attr("y", (d, i) => 600 - d.numSearches * 60)
     .attr("width", 25)
     .attr("height", (d, i) => d.numSearches * 100);
 
@@ -38,8 +38,11 @@ export default function StatsPage() {
     .append("text")
     .text((d) => d.location)
     .attr("x", (d, i) => i * 50)
-    .attr("y", (d, i) => 400 - d.numSearches * 60 - 3)
-    .style("font-size", "10px");
+    .attr("y", (d, i) => 600 - d.numSearches * 60 - 3)
+    .style("font-size", "14px")
+    .style("fill", "red")
+    .style("writing-mode", "tb")
+    .attr("transform", "translate(10,10)");
 
   return (
     <div className="body">
