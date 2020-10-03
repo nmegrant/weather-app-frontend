@@ -62,6 +62,7 @@ export function getLoggedInUserThunkCreator() {
       });
       dispatch(stillLoggedIn(response.data));
     } catch (error) {
+      dispatch(loggedOut());
       console.log(`Error in still logged in: ${error}`);
     }
   };
