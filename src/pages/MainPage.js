@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchMainPageWeatherThunkCreator } from "../store/mainpage/actions";
 import { selectMainPageWeather } from "../store/mainpage/selectors";
 
-import MainPageWeatherCard from "../components/MainPageWeatherCard";
-import SearchForm from "../components/SeachForm";
+import MainPageWeatherCard from "../components/MainPageWeatherCard/MainPageWeatherCard";
+import SearchForm from "../components/SearchForm/SearchForm";
 
 export default function MainPage() {
   const dispatch = useDispatch();
@@ -17,7 +17,7 @@ export default function MainPage() {
 
   return (
     <div>
-      <h1>Weather Around the World</h1>
+      <h1 style={{ color: "#F7717D" }}>Weather Around the World</h1>
       <SearchForm />
       <div
         style={{

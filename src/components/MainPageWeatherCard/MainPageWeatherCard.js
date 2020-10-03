@@ -1,18 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./MainPageWeatherCard.css";
 
 export default function MainPageWeatherCard(props) {
   return (
-    <Link to={`/${props.id}`}>
-      <div
-        style={{
-          height: "300px",
-          width: "200px",
-          border: "solid",
-          margin: "40px",
-          padding: "10px",
-        }}
-      >
+    <Link style={{ textDecoration: "none" }} to={`/${props.id}`}>
+      <div className="card">
         <h1>{props.city}</h1>
         <h2>{props.temp}°C</h2>
         {props.weather.map((conditions) => {

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import "./SearchForm.css";
 
 export default function SearchForm() {
   const [search, setSearch] = useState("");
@@ -21,7 +22,7 @@ export default function SearchForm() {
           value={search}
           onChange={(event) => setSearch(event.target.value)}
         />
-        <button style={{ marginLeft: "5px" }} onClick={submitCity}>
+        <button className="search-button" onClick={submitCity}>
           search
         </button>
       </form>

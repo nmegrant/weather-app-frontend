@@ -2,8 +2,9 @@ import React from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { loggedOut } from "../store/user/actions";
-import { selectToken } from "../store/user/selector";
+import { loggedOut } from "../../store/user/actions";
+import { selectToken } from "../../store/user/selector";
+import "./NavBar.css";
 
 export default function NavBar() {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ export default function NavBar() {
   }
 
   return (
-    <div>
+    <div className="navbar">
       <NavLink
         exact
         to="/"
@@ -25,6 +26,7 @@ export default function NavBar() {
           fontWeight: "bold",
           color: "blue",
         }}
+        className="navlink"
       >
         Main Page
       </NavLink>{" "}
@@ -36,6 +38,7 @@ export default function NavBar() {
             fontWeight: "bold",
             color: "blue",
           }}
+          className="navlink"
         >
           My Page
         </NavLink>
@@ -47,6 +50,7 @@ export default function NavBar() {
           fontWeight: "bold",
           color: "blue",
         }}
+        className="navlink"
       >
         Stats Page
       </NavLink>{" "}
@@ -58,11 +62,14 @@ export default function NavBar() {
             fontWeight: "bold",
             color: "blue",
           }}
+          className="navlink"
         >
           Log in
         </NavLink>
       ) : (
-        <button onClick={logOutHandler}>Log out</button>
+        <button className="navbar-button" onClick={logOutHandler}>
+          Log out
+        </button>
       )}
     </div>
   );

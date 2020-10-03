@@ -12,7 +12,7 @@ import {
 import { selectFavourites } from "../store/favourites/selectors";
 import CityWeather from "../components/CityWeather";
 import WeatherAdvice from "../components/WeatherAdvice";
-import Favourites from "../components/Favourites";
+import Favourites from "../components/Favourites/Favourites";
 
 export default function CityPage() {
   const parameters = useParams();
