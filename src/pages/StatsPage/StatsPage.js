@@ -39,7 +39,10 @@ export default function StatsPage() {
     .text((d) => d.location)
     .attr("x", (d, i) => i * 50)
     .attr("y", (d, i) => 400 - d.numSearches * 60 - 3)
-    .style("font-size", "10px");
+    .style("font-size", "14px")
+    .style("fill", "red")
+    .style("writing-mode", "tb")
+    .attr("transform", "translate(10,10)");
 
   return (
     <div className="body">
