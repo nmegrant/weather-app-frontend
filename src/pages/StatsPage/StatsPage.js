@@ -18,7 +18,7 @@ export default function StatsPage() {
   const svg = d3
     .select(ref.current)
     .append("svg")
-    .attr("width", 400)
+    .attr("width", 500)
     .attr("height", 400);
 
   svg
