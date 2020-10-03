@@ -5,7 +5,7 @@ import { Switch, Route } from "react-router-dom";
 import "./App.css";
 import MainPage from "./pages/MainPage";
 import CityPage from "./pages/CityPage";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/NavBar/NavBar";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import PersonalPage from "./pages/PersonalPage";
