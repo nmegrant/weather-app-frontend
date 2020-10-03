@@ -1,4 +1,5 @@
 import React from "react";
+import "./Favourites.css";
 
 export default function Favourites(props) {
   function clickButton(event) {
@@ -10,7 +11,9 @@ export default function Favourites(props) {
     <div>
       <h5>
         Favourite:{" "}
-        <button onClick={clickButton}>{props.favourite ? "❤️" : "♡"}</button>
+        <button className="favourite-button" onClick={clickButton}>
+          {props.favourite ? "❤️ " : "♡"}
+        </button>
       </h5>
     </div>
   );
