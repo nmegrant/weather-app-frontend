@@ -24,25 +24,40 @@ export default function SignUp() {
   return (
     <div>
       <h1>Sign up!</h1>
-      <form>
-        <label>Name</label>
-        <input value={name} onChange={(event) => setName(event.target.value)} />
-        <label>Location</label>
-        <input
-          value={location}
-          onChange={(event) => setLocation(event.target.value)}
-        />
-        <label>Email</label>
-        <input
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-        />
-        <label>Password</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-        />
+      <form className="form">
+        <div className="input-group">
+          <label className="label">Name</label>
+          <input
+            className="input-field"
+            value={name}
+            onChange={(event) => setName(event.target.value)}
+          />
+        </div>
+        <div className="input-group">
+          <label className="label">Location</label>
+          <input
+            className="input-field"
+            value={location}
+            onChange={(event) => setLocation(event.target.value)}
+          />
+        </div>
+        <div className="input-group">
+          <label className="label">Email</label>
+          <input
+            className="input-field"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+          />
+        </div>
+        <div className="input-group">
+          <label className="label">Password</label>
+          <input
+            className="input-field"
+            type="password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+          />
+        </div>
         <button className="signup-button" onClick={submitSignup}>
           Sign up
         </button>

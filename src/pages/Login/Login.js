@@ -29,18 +29,24 @@ export default function Login() {
   return (
     <div>
       <h1>Log in!</h1>
-      <form>
-        <label>Email</label>
-        <input
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-        />
-        <label>Password</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-        />
+      <form className="form">
+        <div className="input-group">
+          <label className="label">Email</label>
+          <input
+            className="input-field"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+          />
+        </div>
+        <div className="input-group">
+          <label className="label">Password</label>
+          <input
+            className="input-field"
+            type="password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+          />
+        </div>
         <button className="login-button" onClick={submitLogin}>
           Log in
         </button>
