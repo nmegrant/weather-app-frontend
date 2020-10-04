@@ -8,7 +8,7 @@ import CityPage from "./pages/CityPage";
 import NavBar from "./components/NavBar/NavBar";
 import Login from "./pages/Login/Login";
 import SignUp from "./pages/SignUp/SignUp";
-import PersonalPage from "./pages/PersonalPage";
+import PersonalPage from "./pages/PersonalPage/PersonalPage";
 import StatsPage from "./pages/StatsPage/StatsPage";
 import { getLoggedInUserThunkCreator } from "./store/user/actions";
 
