@@ -29,7 +29,8 @@ export default function StatsPage() {
     .attr("x", (d, i) => i * 50)
     .attr("y", (d, i) => 600 - d.numSearches * 60)
     .attr("width", 25)
-    .attr("height", (d, i) => d.numSearches * 100);
+    .attr("height", (d, i) => d.numSearches * 100)
+    .style("fill", "#4ECDC4");
 
   svg
     .selectAll("text")
@@ -40,7 +41,7 @@ export default function StatsPage() {
     .attr("x", (d, i) => i * 50)
     .attr("y", (d, i) => 600 - d.numSearches * 60 - 3)
     .style("font-size", "14px")
-    .style("fill", "red")
+    .style("fill", "#F5E663")
     .style("writing-mode", "tb")
     .attr("transform", "translate(10,10)");
 

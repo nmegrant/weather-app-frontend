@@ -7,7 +7,11 @@
 .graph {
   display: flex;
   justify-content: center;
-  border: solid;
+  border: 5px solid #1e3888;
   width: 600px;
   padding: 10px;
+}
+
+h1 {
+  color: #f7717d;
 }
