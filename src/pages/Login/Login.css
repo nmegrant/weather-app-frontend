@@ -1,0 +1,37 @@
+.login-button {
+  background-color: #1e3888;
+  color: #efe9f4;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 2px solid #1e3888;
+  margin-left: 5px;
+  transition-duration: 0.5s;
+  font-weight: bold;
+}
+
+.login-button:hover {
+  background-color: #efe9f4;
+  color: #1e3888;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.input-group {
+  display: flex;
+  width: 200px;
+  margin: 20px 10px;
+  justify-content: flex-end;
+}
+
+.label {
+  margin-right: 10px;
+}
+
+.input-field {
+  display: flex;
+}

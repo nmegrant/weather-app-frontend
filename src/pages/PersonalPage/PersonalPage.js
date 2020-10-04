@@ -2,14 +2,15 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 
-import CityWeather from "../components/CityWeather";
+import CityWeather from "../../components/CityWeather";
 
-import { selectUser, selectToken } from "../store/user/selector";
-import { getLoggedInUserThunkCreator } from "../store/user/actions";
-import { fetchCityWeatherThunkCreator } from "../store/citypage/actions";
-import { selectcityWeather } from "../store/citypage/selectors";
-import { fetchUserFavouritesThunkCreator } from "../store/favourites/actions";
-import { selectFavourites } from "../store/favourites/selectors";
+import { selectUser, selectToken } from "../../store/user/selector";
+import { getLoggedInUserThunkCreator } from "../../store/user/actions";
+import { fetchCityWeatherThunkCreator } from "../../store/citypage/actions";
+import { selectcityWeather } from "../../store/citypage/selectors";
+import { fetchUserFavouritesThunkCreator } from "../../store/favourites/actions";
+import { selectFavourites } from "../../store/favourites/selectors";
+import "./PersonalPage.css";
 
 export default function PersonalPage() {
   const user = useSelector(selectUser());
@@ -46,7 +47,9 @@ export default function PersonalPage() {
       {favourites.map((favourite) => {
         return (
           <div key={favourite.id}>
-            <Link to={favourite.location}>{favourite.location}</Link>
+            <Link className="city-link" to={favourite.location}>
+              {favourite.location}
+            </Link>
           </div>
         );
       })}

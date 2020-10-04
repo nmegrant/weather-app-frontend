@@ -24,7 +24,7 @@ export default function NavBar() {
         to="/"
         activeStyle={{
           fontWeight: "bold",
-          color: "blue",
+          color: "#1E3888",
         }}
         className="navlink"
       >
@@ -36,7 +36,7 @@ export default function NavBar() {
           to="/profile"
           activeStyle={{
             fontWeight: "bold",
-            color: "blue",
+            color: "#1E3888",
           }}
           className="navlink"
         >
@@ -48,7 +48,7 @@ export default function NavBar() {
         to="/stats"
         activeStyle={{
           fontWeight: "bold",
-          color: "blue",
+          color: "#1E3888",
         }}
         className="navlink"
       >
@@ -60,7 +60,7 @@ export default function NavBar() {
           to="/login"
           activeStyle={{
             fontWeight: "bold",
-            color: "blue",
+            color: "#1E3888",
           }}
           className="navlink"
         >
