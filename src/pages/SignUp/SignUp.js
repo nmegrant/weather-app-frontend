@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { signUpThunkCreator } from "../store/user/actions";
+import { signUpThunkCreator } from "../../store/user/actions";
+import "./SignUp.css";
 
 export default function SignUp() {
   const [name, setName] = useState("");
@@ -42,7 +43,9 @@ export default function SignUp() {
           value={password}
           onChange={(event) => setPassword(event.target.value)}
         />
-        <button onClick={submitSignup}>Sign up</button>
+        <button className="signup-button" onClick={submitSignup}>
+          Sign up
+        </button>
       </form>
       <p>
         Already a member? <Link to="/login">Log in here!</Link>
